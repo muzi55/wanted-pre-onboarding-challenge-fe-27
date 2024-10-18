@@ -1,5 +1,6 @@
 :root {
   font-size: 16px;
+  --primary-color: #007bff;
 }
 
 * {
@@ -13,4 +14,8 @@ ol,
 ul {
   list-style: none;
   padding: 0;
+}
+
+.bg-red {
+  background: red !important;
 }

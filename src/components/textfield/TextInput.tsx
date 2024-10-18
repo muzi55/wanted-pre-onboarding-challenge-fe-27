@@ -1,15 +1,6 @@
 import React from 'react'
 import style from './TextInput.module.css'
-
-type TextInputType = 'email' | 'password'
-interface ITextInputProps {
-  value: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  placeholder: string
-  type: TextInputType
-  name: string
-  id: string
-}
+import { ITextInputProps } from '../../types/TextField'
 
 function TextInput({
   value,
