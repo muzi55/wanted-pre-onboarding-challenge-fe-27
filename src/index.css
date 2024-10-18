@@ -1,7 +1,7 @@
 :root {
   font-size: 16px;
   --primary-color: #007bff;
-  --gary: rgba(0, 0, 0, 0.67);
+  --gary: rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -33,4 +33,8 @@ ul {
 }
 .mb-2 {
   margin-bottom: 8px;
+}
+
+.m-auto {
+  margin: 0 auto;
 }

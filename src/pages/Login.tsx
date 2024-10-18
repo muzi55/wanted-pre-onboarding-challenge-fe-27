@@ -1,31 +1,40 @@
+import { useId, useState } from 'react'
 import TextField from '../components/textfield/TextField'
 
 function Login() {
+  const emailId = useId()
+  const passwordId = useId()
+
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+
   return (
-    <div>
+    <section>
       <h1>Login</h1>
       <form>
-        <div>
-          <label htmlFor="">email</label>
-          <input type="text" />
-        </div>
-        <div>
-          <label htmlFor="">password</label>
-          <input type="password" name="" id="" />
-        </div>
         <TextField
-          label="라벨"
-          htmlFor="email"
-          value="asd"
-          onChange={(e) => console.log(e.target.value)}
-          placeholder="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
           type="email"
-          name="email"
-          id="email"
-          //   errorMessage="에러가 발생하였습니다."
+          name="login"
+          id={`email-${emailId}`}
+          label="Email"
+          htmlFor={`email-${emailId}`}
         />
+        <TextField
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          type="password"
+          name="password"
+          id={`password-${passwordId}`}
+          label="Password"
+          htmlFor={`password-${passwordId}`}
+        />
+        <button type="submit">Login</button>
       </form>
-    </div>
+    </section>
   )
 }
 

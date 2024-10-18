@@ -9,10 +9,11 @@
   border-width: 1px;
   border-style: solid;
   transition: border-color 0.3s;
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 .textField.active {
-  border-color: var(--gray);
+  border-color: black;
 }
 
 .textField.focus {

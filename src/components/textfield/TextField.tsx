@@ -22,7 +22,7 @@ export default function TextField({
   label,
   htmlFor,
 }: ITextFieldProps) {
-  const [isFocused, setIsFocused] = useState<Boolean>(true)
+  const [isFocused, setIsFocused] = useState<Boolean>(false)
 
   const handleFocus = (type: boolean) => {
     setIsFocused(type)
