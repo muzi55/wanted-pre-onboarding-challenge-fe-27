@@ -1,5 +1,6 @@
 import React from 'react'
 import TextError from '../components/textfield/TextError'
+import TextInput from '../components/textfield/TextInput'
 
 function Login() {
   return (
@@ -14,8 +15,18 @@ function Login() {
           <label htmlFor="">password</label>
           <input type="password" name="" id="" />
         </div>
+        <div>
+          <TextInput
+            value=""
+            onChange={(e) => console.log(e.target.value)}
+            placeholder="email"
+            type="email"
+            name="email"
+            id="email"
+          />
 
-        <TextError>error</TextError>
+          <TextError>error</TextError>
+        </div>
       </form>
     </div>
   )
