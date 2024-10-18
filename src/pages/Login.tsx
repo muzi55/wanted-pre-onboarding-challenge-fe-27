@@ -1,6 +1,3 @@
-import React from 'react'
-import TextError from '../components/textfield/TextError'
-import TextInput from '../components/textfield/TextInput'
 import TextField from '../components/textfield/TextField'
 
 function Login() {
@@ -17,13 +14,15 @@ function Login() {
           <input type="password" name="" id="" />
         </div>
         <TextField
-          value=""
+          label="라벨"
+          htmlFor="email"
+          value="asd"
           onChange={(e) => console.log(e.target.value)}
           placeholder="email"
           type="email"
           name="email"
           id="email"
-          errorMessage="에러가 발생하였습니다."
+          //   errorMessage="에러가 발생하였습니다."
         />
       </form>
     </div>
