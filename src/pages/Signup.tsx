@@ -2,8 +2,11 @@ import React, { useId, useState } from 'react'
 import TextField from '../components/textfield/TextField'
 import { emailPattern } from '../libs/constant'
 import useInputError from '../hooks/useInputError'
+import axios from 'axios'
 
 export default function Signup() {
+  const [buttonDisabled, setButtonDisabled] = useState<boolean>(false)
+
   const {
     errorState,
     emailErrorState,
@@ -13,9 +16,8 @@ export default function Signup() {
     passwordCheck,
     rePasswordErrorState,
     passwordReCheck,
+    disableButton,
   } = useInputError()
-
-  // console.log('errorState', errorState)
 
   const emailId = useId()
   const passwordId = useId()
@@ -25,11 +27,27 @@ export default function Signup() {
   const [password, setPassword] = useState<string>('')
   const [rePassword, setRePassword] = useState<string>('')
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-  }
+    setButtonDisabled(true)
 
-  console.log(errorState)
+    try {
+      const bodyData = {
+        email: email,
+        password: password,
+      }
+
+      console.log('bodyData', JSON.stringify(bodyData))
+      const res = await axios.post(
+        `${import.meta.env.VITE_SERVER_API}/users/create`,
+        bodyData
+      )
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setButtonDisabled(false)
+    }
+  }
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
@@ -108,7 +126,9 @@ export default function Signup() {
                 : ''
           }
         />
-        <button type="submit">signup</button>
+        <button disabled={disableButton() || buttonDisabled} type="submit">
+          signup
+        </button>
       </form>
     </section>
   )

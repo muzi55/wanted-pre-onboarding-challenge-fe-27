@@ -82,6 +82,17 @@ function useInputError() {
     return
   }
 
+  const disableButton = () => {
+    if (
+      errorState.email === null &&
+      errorState.password === null &&
+      errorState.rePassword === null
+    ) {
+      return false
+    }
+    return true
+  }
+
   return {
     errorState,
     emailErrorState,
@@ -91,6 +102,7 @@ function useInputError() {
     passwordCheck,
     rePasswordErrorState,
     passwordReCheck,
+    disableButton,
   }
 }
 
