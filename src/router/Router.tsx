@@ -22,6 +22,7 @@ function Router() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/write" element={<Home />} />
         </Route>
         <Route path="/auth" element={<Auth />} />
       </Routes>

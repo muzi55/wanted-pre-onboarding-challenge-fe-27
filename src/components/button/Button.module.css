@@ -12,3 +12,7 @@
 .secondaryButton {
   background: var(--secondary-color);
 }
+
+.fullSize {
+  width: 100%;
+}

@@ -5,14 +5,25 @@ interface IButtonProps {
   children: React.ReactNode
   onClick: () => void
   theme?: 'primary' | 'secondary'
+  full?: boolean
 }
-function Button({ children, onClick, theme = 'primary' }: IButtonProps) {
+
+function Button({
+  children,
+  onClick,
+  theme = 'primary',
+  full = false,
+}: IButtonProps) {
   const primary = style.primaryButton
   const secondary = style.secondaryButton
   const color: Record<ButtonTheme, string> = { primary, secondary }
 
+  const fullSize = full ? style.fullSize : ''
   return (
-    <button className={`${style.button} ${color[theme]}`} onClick={onClick}>
+    <button
+      className={`${style.button} ${color[theme]} ${fullSize}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   )
