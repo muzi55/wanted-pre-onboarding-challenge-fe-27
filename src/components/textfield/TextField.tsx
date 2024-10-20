@@ -7,8 +7,10 @@ import TextLabel from './TextLabel'
 
 interface ITextFieldProps extends ITextInputProps {
   errorMessage?: string
+  isError?: boolean | null | undefined
   label: string
   htmlFor: string
+  onBlur: () => void
 }
 
 export default function TextField({
@@ -21,6 +23,8 @@ export default function TextField({
   errorMessage,
   label,
   htmlFor,
+  isError,
+  onBlur,
 }: ITextFieldProps) {
   const [isFocused, setIsFocused] = useState<Boolean>(false)
 
@@ -32,8 +36,11 @@ export default function TextField({
       <TextLabel htmlFor={htmlFor}>{label}</TextLabel>
       <div
         onFocus={() => handleFocus(true)}
-        onBlur={() => handleFocus(false)}
-        className={`${style.textField} ${isFocused ? style.focus : value ? style.active : ''} mb-2`}
+        onBlur={() => {
+          handleFocus(false)
+          onBlur()
+        }}
+        className={`${style.textField}  ${isFocused ? style.focus : isError ? style.error : value ? style.active : ''} mb-2`}
       >
         <TextInput
           value={value}
@@ -45,7 +52,7 @@ export default function TextField({
         />
       </div>
 
-      {errorMessage && <TextError>{errorMessage}</TextError>}
+      {isError && <TextError>{errorMessage}</TextError>}
     </div>
   )
 }

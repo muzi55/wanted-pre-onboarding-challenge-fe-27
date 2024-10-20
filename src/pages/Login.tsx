@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState<string>('')
 
   return (
-    <section>
+    <section className="w-100">
       <h1>Login</h1>
       <form>
         <TextField

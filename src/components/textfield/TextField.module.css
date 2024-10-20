@@ -19,3 +19,7 @@
 .textField.focus {
   border-color: var(--primary-color);
 }
+
+.textField.error {
+  border-color: red;
+}
