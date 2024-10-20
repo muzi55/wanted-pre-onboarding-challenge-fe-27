@@ -21,7 +21,7 @@ export interface ITodoItem {
   updatedAt: string
 }
 
-export interface IButtonItemProps extends ITodoItem {
+export interface ITodoItemProps extends ITodoItem {
   onEdit: () => void
   onDelete: () => void
 }

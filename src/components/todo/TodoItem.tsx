@@ -1,5 +1,5 @@
 import React from 'react'
-import { IButtonItemProps } from '../../types/TextField'
+import { ITodoItemProps } from '../../types/TextField'
 import Button from '../button/Button'
 import style from './TodoItem.module.css'
 
@@ -11,7 +11,7 @@ export default function TodoItem({
   updatedAt,
   onEdit,
   onDelete,
-}: IButtonItemProps) {
+}: ITodoItemProps) {
   return (
     <li className={style.item}>
       <div className={style.itemHeader}>

@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TodoItem from '../components/todo/TodoItem'
+import { ITodoItem, ITodoItemProps } from '../types/TextField'
+import axios from 'axios'
 
 function Home() {
+  const [data, setData] = useState<ITodoItemProps[]>([])
+  const token = localStorage.getItem('token')
+  const getData = async () => {
+    const res = await axios.get(`${import.meta.env.VITE_SERVER_API}/todos`, {
+      headers: {
+        Authorization: token,
+      },
+    })
+
+    console.log(res.data)
+  }
+  useEffect(() => {
+    getData()
+  })
   return (
     <div>
       <div>
