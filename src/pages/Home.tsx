@@ -1,4 +1,5 @@
 import React from 'react'
+import TodoItem from '../components/todo/TodoItem'
 
 function Home() {
   return (
@@ -10,16 +11,15 @@ function Home() {
       <div>
         {/* // 투두 리스트 섹션 */}
         <ul>
-          <li>
-            <span>투두 1</span>
-            <button>수정</button>
-            <button>삭제</button>
-          </li>
-          <li>
-            <span>투두 2</span>
-            <button>수정</button>
-            <button>삭제</button>
-          </li>
+          <TodoItem
+            title="투두 1"
+            content="투두 내용"
+            id="1"
+            createdAt="2021-08-25"
+            updatedAt="2021-08-25"
+            onEdit={() => {}}
+            onDelete={() => {}}
+          />
         </ul>
       </div>
     </div>

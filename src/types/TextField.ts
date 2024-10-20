@@ -13,10 +13,15 @@ export interface ITextInputProps {
   id: string
 }
 
-export interface ITodoItemProps {
+export interface ITodoItem {
   title: string
   content: string
   id: string
   createdAt: string
   updatedAt: string
+}
+
+export interface IButtonItemProps extends ITodoItem {
+  onEdit: () => void
+  onDelete: () => void
 }

@@ -1,6 +1,7 @@
 :root {
   font-size: 16px;
   --primary-color: #007bff;
+  --secondary-color: #ea300bc3;
   --gary: rgba(0, 0, 0, 0.3);
 }
 
@@ -45,4 +46,16 @@ ul {
 
 .w-100 {
   width: 100%;
+}
+
+button {
+  cursor: pointer;
+  transition: filter 0.3s;
+  &:hover {
+    filter: brightness(0.9);
+  }
+  &:focus,
+  &:active {
+    filter: brightness(1.2);
+  }
 }

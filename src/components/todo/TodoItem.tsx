@@ -1,5 +1,7 @@
 import React from 'react'
-import { ITodoItemProps } from '../../types/TextField'
+import { IButtonItemProps } from '../../types/TextField'
+import Button from '../button/Button'
+import style from './TodoItem.module.css'
 
 export default function TodoItem({
   title,
@@ -7,17 +9,21 @@ export default function TodoItem({
   id,
   createdAt,
   updatedAt,
-}: ITodoItemProps) {
+  onEdit,
+  onDelete,
+}: IButtonItemProps) {
   return (
-    <li>
-      <div>
+    <li className={style.item}>
+      <div className={style.itemHeader}>
         <h3>{title}</h3>
         <div>
-          <button>수정</button>
-          <button>삭제</button>
+          <Button onClick={onEdit}>수정</Button>
+          <Button onClick={onDelete} theme="secondary">
+            삭제
+          </Button>
         </div>
       </div>
-      <p>{content}</p>
+      <p className={style.itemBody}>{content}</p>
     </li>
   )
 }
