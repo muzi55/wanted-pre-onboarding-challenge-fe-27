@@ -12,3 +12,11 @@ export interface ITextInputProps {
   name: string
   id: string
 }
+
+export interface ITodoItemProps {
+  title: string
+  content: string
+  id: string
+  createdAt: string
+  updatedAt: string
+}
