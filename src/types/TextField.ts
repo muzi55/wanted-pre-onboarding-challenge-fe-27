@@ -1,9 +1,10 @@
-type TextInputType = 'email' | 'password'
+type TextInputType = 'email' | 'password' | 'text'
 
 export interface ITextLabelProps {
   children: React.ReactNode
   htmlFor: string
 }
+
 export interface ITextInputProps {
   value: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -11,6 +12,7 @@ export interface ITextInputProps {
   type: TextInputType
   name: string
   id: string
+  require?: boolean
 }
 
 export interface ITodoItem {

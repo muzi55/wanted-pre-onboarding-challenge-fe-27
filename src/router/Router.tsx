@@ -4,6 +4,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import Auth from '../pages/Auth'
 import Home from '../pages/Home'
 import Layout from '../layout/Layout'
+import Write from '../pages/Write'
 
 function Router() {
   const navigate = useNavigate()
@@ -22,7 +23,7 @@ function Router() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/write" element={<Home />} />
+          <Route path="/write" element={<Write />} />
         </Route>
         <Route path="/auth" element={<Auth />} />
       </Routes>

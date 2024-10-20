@@ -16,6 +16,7 @@ function Home() {
         Authorization: token,
       },
     })
+    console.log(res.data)
   }
 
   useEffect(() => {
@@ -31,7 +32,7 @@ function Home() {
           }}
           full={true}
         >
-          작성하기
+          투두 쓰로 가기
         </Button>
       </div>
       <div>

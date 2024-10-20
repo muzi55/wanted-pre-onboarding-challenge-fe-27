@@ -9,6 +9,7 @@ function TextInput({
   type,
   name,
   id,
+  require = false,
 }: ITextInputProps) {
   return (
     <input
@@ -19,6 +20,7 @@ function TextInput({
       name={name}
       id={id}
       placeholder={placeholder}
+      required={require}
     />
   )
 }
