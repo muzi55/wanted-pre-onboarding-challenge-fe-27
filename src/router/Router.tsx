@@ -1,19 +1,14 @@
-import React, { useEffect } from 'react'
-import {
-  BrowserRouter,
-  Route,
-  RouterProvider,
-  Routes,
-  useNavigate,
-} from 'react-router-dom'
-import Login from '../pages/Login'
+import { useEffect } from 'react'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+
 import Auth from '../pages/Auth'
 import Home from '../pages/Home'
+import Layout from '../layout/Layout'
 
 function Router() {
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
-  console.log('token', token)
+
   useEffect(() => {
     if (!token || token === 'undefined') {
       alert(`토큰이 없습니다.
@@ -25,7 +20,9 @@ function Router() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+        </Route>
         <Route path="/auth" element={<Auth />} />
       </Routes>
     </>
