@@ -11,17 +11,21 @@ function Home() {
   const token = localStorage.getItem('token')
 
   const getData = async () => {
-    const res = await axios.get(`${import.meta.env.VITE_SERVER_API}/todos`, {
-      headers: {
-        Authorization: token,
-      },
-    })
-    console.log(res.data)
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_SERVER_API}/todos`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    )
+    setData(data.data)
+    console.log(data.data)
   }
 
   useEffect(() => {
     getData()
-  })
+  }, [])
   return (
     <div>
       <div>
@@ -37,16 +41,23 @@ function Home() {
       </div>
       <div>
         {/* // 투두 리스트 섹션 */}
-        <ul>
-          <TodoItem
-            title="투두 1"
-            content="투두 내용"
-            id="1"
-            createdAt="2021-08-25"
-            updatedAt="2021-08-25"
-            onEdit={() => {}}
-            onDelete={() => {}}
-          />
+        <ul style={{ height: '700px', overflowY: 'scroll' }}>
+          {data.map((item: ITodoItem) => (
+            <TodoItem
+              key={item.id}
+              title={item.title}
+              content={item.content}
+              id={item.id}
+              createdAt={item.createdAt}
+              updatedAt={item.updatedAt}
+              onEdit={() => {
+                console.log(1)
+              }}
+              onDelete={() => {
+                console.log(2)
+              }}
+            />
+          ))}
         </ul>
       </div>
     </div>

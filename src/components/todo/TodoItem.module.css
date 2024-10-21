@@ -8,7 +8,11 @@
   align-items: center;
   padding: 12px 0px;
 }
+.itemHeader h3 {
+  cursor: pointer;
+}
 
 .itemBody {
+  cursor: pointer;
   padding-bottom: 8px;
 }
