@@ -5,6 +5,7 @@ import Auth from '../pages/Auth'
 import Home from '../pages/Home'
 import Layout from '../layout/Layout'
 import Write from '../pages/Write'
+import Detail from '../pages/Detail'
 
 function Router() {
   const navigate = useNavigate()
@@ -24,6 +25,7 @@ function Router() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/write" element={<Write />} />
+          <Route path="/:id" element={<Detail />} />
         </Route>
         <Route path="/auth" element={<Auth />} />
       </Routes>
