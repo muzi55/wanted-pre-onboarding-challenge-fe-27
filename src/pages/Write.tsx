@@ -3,12 +3,11 @@ import Button from '../components/button/Button'
 import TodoWrite from '../components/write/TodoWrite'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import TodoForm from '../components/write/TodoForm'
 
 function Write() {
-  const navigate = useNavigate()
   const token = localStorage.getItem('token')
-  const titleId = useId()
-  const contentId = useId()
+  const navigate = useNavigate()
 
   const [title, setTitle] = useState<string>('')
   const [content, setContent] = useState<string>('')
@@ -44,33 +43,13 @@ function Write() {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <TodoWrite
-        htmlFor={`title-${titleId}`}
-        label="제목"
-        onChange={onChangeTitle}
-        value={title}
-        placeholder="제목을 입력해주세요."
-        type="text"
-        name="title"
-        id="title"
-        require={true}
-      />
-      <TodoWrite
-        htmlFor={`content-${titleId}`}
-        label="내용"
-        onChange={onChangeContent}
-        value={content}
-        placeholder="내용을 입력해주세요."
-        type="text"
-        name="content"
-        id="content"
-        require={true}
-      />
-      <Button onClick={() => {}} full={true}>
-        작성하기
-      </Button>
-    </form>
+    <TodoForm
+      onSubmit={onSubmit}
+      onChangeTitle={onChangeTitle}
+      title={title}
+      onChangeContent={onChangeContent}
+      content={content}
+    />
   )
 }
 
